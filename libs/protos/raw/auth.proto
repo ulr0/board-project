@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package auth;
+
+service Auth {
+    rpc Create (SignupRequest) returns (UserInfo) {}
+}
+
+message SignupRequest {
+    string email = 1;
+    string nickname = 2;
+    string password = 3;
+}
+
+message UserInfo {
+    int32 user_id = 1;
+    string email = 2;
+    string nickname = 3;
+    string created_at = 4;
+    bool is_deleted = 5;
+}

@@ -1,33 +1,18 @@
-import os
-import sys
+# import os
+# import sys
 import uvicorn
-import pymysql
 
-sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))))
+# sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))))
 
 from fastapi import FastAPI
-from fastapi.encoders import jsonable_encoder
-from pydantic import BaseModel
 
-from libs.db.mysql.connection import connection
-import test_client
-
-class User(BaseModel):
-    email: str
-    nickname: str
-    password: str
-    created_at: str
-    is_deleted: bool
+from controller import router
 
 app = FastAPI()
+app.include_router(router)
 
-@app.get('/')
-def hiroo():
-    
-    return {'hi':'roo'}
-
-@app.post('/test')
-def test(user: User):
+# @app.post('/signup')
+# def signup(data: NewUserInfo):
     # conn = connection()
     # query = """
     #     INSERT INTO users(
@@ -51,9 +36,10 @@ def test(user: User):
     
     # conn.commit()
     
-    result = test_client.run(user)
+    # result = test_client.run(user)
     
-    return {'user_id' : result.user_id, 'email' : result.email, 'nickname' : result.nickname}
+    # return {'user_id' : result.user_id, 'email' : result.email, 'nickname' : result.nickname}
+    # return data
 
 if __name__ == '__main__':
     uvicorn.run('app:app', host='127.0.0.1', port=8000, reload=True)
