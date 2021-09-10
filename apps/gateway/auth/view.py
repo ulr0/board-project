@@ -1,5 +1,9 @@
 from fastapi import APIRouter
 from pydantic import BaseModel, Field
+from typing import Optional
+from google.protobuf.json_format import MessageToDict
+
+from apps.gateway.auth import client
 
 class NewUserInfo(BaseModel):
     email: str = Field(regex='^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$')
@@ -8,10 +12,11 @@ class NewUserInfo(BaseModel):
 
 router = APIRouter()
 
-class Auth():
+class Auth:
     
     @router.post('/signup')
     def signup(data: NewUserInfo):
-        # 클라이언트로 연결..
+        
+        result = client.Auth.create(data)
 
-        return data
+        return MessageToDict(result)

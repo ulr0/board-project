@@ -17,5 +17,5 @@ message UserInfo {
     string email = 2;
     string nickname = 3;
     string created_at = 4;
-    bool is_deleted = 5;
+    string is_deleted = 5;
 }

@@ -1,12 +1,10 @@
-# import os
-# import sys
+import os, sys
+sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))))
+
 import uvicorn
-
-# sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))))
-
 from fastapi import FastAPI
 
-from controller import router
+from apps.gateway.auth.view import router
 
 app = FastAPI()
 app.include_router(router)
