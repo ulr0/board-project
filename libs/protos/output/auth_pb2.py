@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\nauth.proto\x12\x04\x61uth\"B\n\rSignupRequest\x12\r\n\x05\x65mail\x18\x01 \x01(\t\x12\x10\n\x08nickname\x18\x02 \x01(\t\x12\x10\n\x08password\x18\x03 \x01(\t\"d\n\x08UserInfo\x12\x0f\n\x07user_id\x18\x01 \x01(\x05\x12\r\n\x05\x65mail\x18\x02 \x01(\t\x12\x10\n\x08nickname\x18\x03 \x01(\t\x12\x12\n\ncreated_at\x18\x04 \x01(\t\x12\x12\n\nis_deleted\x18\x05 \x01(\x08\x32\x37\n\x04\x41uth\x12/\n\x06\x43reate\x12\x13.auth.SignupRequest\x1a\x0e.auth.UserInfo\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\nauth.proto\x12\x04\x61uth\"B\n\rSignupRequest\x12\r\n\x05\x65mail\x18\x01 \x01(\t\x12\x10\n\x08nickname\x18\x02 \x01(\t\x12\x10\n\x08password\x18\x03 \x01(\t\"d\n\x08UserInfo\x12\x0f\n\x07user_id\x18\x01 \x01(\x05\x12\r\n\x05\x65mail\x18\x02 \x01(\t\x12\x10\n\x08nickname\x18\x03 \x01(\t\x12\x12\n\ncreated_at\x18\x04 \x01(\t\x12\x12\n\nis_deleted\x18\x05 \x01(\t27\n\x04\x41uth\x12/\n\x06\x43reate\x12\x13.auth.SignupRequest\x1a\x0e.auth.UserInfo\"\x00\x62\x06proto3'
 )
 
 
@@ -109,8 +109,8 @@ _USERINFO = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='is_deleted', full_name='auth.UserInfo.is_deleted', index=4,
-      number=5, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
