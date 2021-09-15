@@ -10,6 +10,10 @@ class NewUserInfo(BaseModel):
     nickname: str = Field(regex='^[가-힣|a-z|A-Z|0-9]+$', min_length=2, max_length=12)
     password: str = Field(min_length=6, max_length=15)
 
+class SignIn(BaseModel):
+    email: str = Field(regex='^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$')
+    password: str = Field(min_length=6, max_length=15)
+
 router = APIRouter()
 
 class Auth:
@@ -20,3 +24,7 @@ class Auth:
         result = client.Auth.create(data)
 
         return MessageToDict(result)
+
+    @router.post('/signin')
+    def signin(data: SignIn):
+        pass
